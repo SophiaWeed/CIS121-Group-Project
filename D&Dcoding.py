@@ -1,6 +1,6 @@
 import random   #used for random damage values in attacks
 
-# ---- CLASS DESIGN ----
+# ---- CLASS DESIGN ----;';
 class Character:
     def __init__(self, name, char_class, hp, attack, defense, intelligence): 
 #constructor sets up a character with a name, class, and stats
