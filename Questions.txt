@@ -1,3 +1,23 @@
 What is 2 + 2 ,4
 What is 7 - 4,3
 What letter does the word "toucan" start with? ,t
+What keyword is used to define a function in Python?,def 
+What is the name of __init__()?,constructor
+What data type is used for true/false values?,boolean
+What function is used to output text to the screen?,print()
+What function is used to get input from the user?,input()
+What operator is used for exponentiation?,**
+What keyword is used to create a loop that repeats over item in a sequence?,for
+What built-in function gives the length of a list or string?,len()
+What Python data type uses square brackets?,list
+What Python data type uses curly brackets?,dictionary
+What value represents "nothing" or "no value" in Python?,None
+What operator checks for equality?,==
+What loop keeps running while a condition is true?,while
+What is the index of the first element in a Python list?,0
+What function converts a value into an integer?,int()
+What operator is used for floor division?,//
+What method is ised to add an item to the end of a list?,append()
+What method returns the number of occurences of an item in a list or string?,count()
+What keyword is used to check multiple conditions after an if statement?,elif
+What operator is used for modulo(remainder)?,%
