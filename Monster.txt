@@ -1,2 +1,3 @@
-Jacob,10,5
-Matt,20,5
+Nahili Ansha,10,5
+Jacob Tang,10,5
+Matt Priem,30,5

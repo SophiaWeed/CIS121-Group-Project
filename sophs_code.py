@@ -143,7 +143,7 @@ class Game:
         print("    'I can see that you are. You have the look about you of desperation...'")
         print("A few moments of awkward silence followed.")
         print("At last, Matt turned and stood from the swivel chair in one fluid motion,")
-        print("placing both hands on his desk with an unnerving smile.\n")
+        print("placing both hands on his desk with an unnerving smile.")
         print("     'Very well... I'll grant you an opportunity to improve your grade.'\n")
         input("Response: ")
         print("\n    'All you have to do is demonstrate mastery over the standards of this")
