@@ -20,9 +20,8 @@ What method is used to add an item to the end of a list?,append()
 What method returns the number of occurences of an item in a list or string?,count()
 What keyword is used to check multiple conditions after an if statement?,elif
 What operator is used for modulo(remainder)?,%
-Are the values contained within the function greeting("Hey there","Mark") arguments or parameters?,arguments
-Are the values contained within the function greeting(greeting,name) arguments or parameters?,parameters
+Is the value contained within the function greeting("Hey there") an argument or parameter?,argument
+Is the value contained within the function greeting(greeting) an argument or parameter?,parameter
 Which is the valid variable name: _myvar3 or myvar!3?,_myvar3
 What is the name of the operation performed by "+" in 'string1 + string2'?,concatenation
 What will the terminal output for print(x) if y=3 and x=y?,3
-

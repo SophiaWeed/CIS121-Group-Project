@@ -1,4 +1,4 @@
-import math
+
 import random
 
 
@@ -29,12 +29,6 @@ class Character:
     
     def set_damage(self, new_damage):
         self.damage = new_damage
-
-    def get_previous_answers(self):
-        return self.previous_answers
-    
-    def set_previous_answers(self, new_previous_answer):
-        self.previous_answers = new_previous_answer
         
 
     #Create alive status to know if character is alive
@@ -51,30 +45,30 @@ class Character:
         #prints the result
         print(f'{self.name} attacks {enemy.name} for {self.damage} damage')
         print(f'{enemy.get_name()} is at {enemy.get_hp()} hp')
-        #resets previous answers of character when they attack
-        self.previous_answers = []
-    
-    # Appends answer to previous answers
-    def add_answer_to_previous_answers(self, player_answer):
-        self.previous_answers.append(player_answer)
     
     
 
 
 #Creates seperate class for monster so it can attack differently using questions
+
 class Monsters(Character): #Monster class inherits Character class methods and variables
-    
-    
+
     #imports questions answer pairs from a txt file into dictionary where question is key and answer is value
-    def create_question_dict(self, question_file):
-        questions_dict = {}
-        with open(question_file, 'r') as file:
+    def create_question_dict(self):
+        
+        with open("Questions.txt","r") as file:
+            questions_dict = {}
             for line in file:
-                line = line.strip()
+                parts = line.strip().split(",")
                 if line:
-                    question, answer = line.split(',')
-            
-                questions_dict[question] = answer
+                    line = line.split(",")
+        # question_file = open("Questions.txt","r")
+        # data = question_file.readlines()
+        # for line in data:
+        #     line_data = line.split(",")
+            question = line[0]
+            answer = line[1]
+            questions_dict[question] = answer
         return questions_dict
     
     #Creates list of keys in questions_dictonary and returns a random key from that list  
@@ -89,18 +83,14 @@ class Monsters(Character): #Monster class inherits Character class methods and v
     def give_question(self, player): 
         #Creates dicitionary with questions as keys and answers as values.
         #Then it picks a random question and its corresponding answer from that dictionary.
-        questions_dict = self.create_question_dict("Questions.txt")
+        questions_dict = self.create_question_dict()
         question = self.return_random_question(questions_dict) 
         answer = questions_dict[question]
         print(question)
     #enemy answers question and if it is incorrect they take attack damage
         player_answer = input("What is your answer? ") 
         while player_answer != answer:
-            while player_answer in player.get_previous_answers(): #Stops player from repeatedly inputing an incorect answer
-                print('You have already tried this answer')
-                player_answer = input("What is your answer? ")
             self.attack(player)
-            player.add_answer_to_previous_answers(player_answer)
             print(question)
             player_answer = input("What is your answer? ")
              
@@ -115,7 +105,7 @@ class Game:
     def __init__(self):
         self.game_running = True
     
-    #Start, introduction of Game
+    #Game start, story, and combat introduction.
     def start1(self):
         print("--------------------------------------------------------")
         print("__________Ctrl+Alt+Defeat: The Final Commit_____________")
@@ -150,7 +140,12 @@ class Game:
         print("course,' he continued, but his tone was strangely foreboding.")
         print("Matt raised one hand, and from the shadows, Nahili Ansha stepped forward.")
         print("     'Show me what you've learned... or FAIL!' Matt shouted, and Nahili advanced.")
-
+    def combat_start(self):
+        print("\n-------------------------------------------------------------------------------------")
+        print("Nahili closes in! Answer each of her CIS 121 questions correctly to deal damage, but")
+        print("beware the consequences of an incorrect answer!")
+        print("-------------------------------------------------------------------------------------")
+        
 
 
     # Defines the steps of the Boss fight
@@ -209,6 +204,7 @@ game.start1()
 # Create Character 
 Player = Character(choose_name(), 20, 5)
 game.start2()
+game.combat_start()
 for monster in monsters_list:
     if game.game_running:
         game.boss_fight(Player, monster)
