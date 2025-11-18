@@ -115,9 +115,43 @@ class Game:
     def __init__(self):
         self.game_running = True
     
-    #Start of Game
-    def start(self):
-        print('Welcome to the best game ever')
+    #Start, introduction of Game
+    def start1(self):
+        print("--------------------------------------------------------")
+        print("__________Ctrl+Alt+Defeat: The Final Commit_____________")
+        print('An adventure by Nathan Lang, Eric Nuno, and Sophia Weed')
+        print("--------------------------------------------------------\n")
+        print("    It's snowing outside. Students everywhere are huddled inside,")
+        print("sheltering by their laptops and notebooks. There's an air of panic")
+        print("in the undercurrent of staff and students alike, and you're all too")
+        print("familiar with the reason: It's Finals Week at MSU Mankato.\n")
+        print("Worse, it's Finals Week, and you have an 'F' in your CIS 121 course.\n")
+    def start2(self):
+        print("\nYou walk alone through the cold snow toward the office of Dr. Priem,")
+        print("preparing yourself to beg for mercy. After entering Wissink Hall, you")
+        print("are surprised to see Matt's office door swing open by itself before you")
+        print("even touched the handle. The room is dark.")
+        print(f"A voice comes from inside. 'Ah, I've been expecting you, {Player.get_name()}.'\n")
+        input("Response: ")
+        print("\nUpon closer inspection, you find Matt facing the opposite wall, reclining")
+        print("in a leather swivel chair. He doesn't turn to face you.\n")
+        print("    'I suppose you're wondering what you can do to pass my course,' Dr.")
+        print("Priem presumed in a foreboding voice. 'Yes?'\n")
+        user_ans = input("Answer 'Yes' or 'No': ")
+        if user_ans != 'Yes' and user_ans != 'No':
+            print("The CIS professor gives you a strange look.")
+        print("    'I can see that you are. You have the look about you of desperation...'")
+        print("A few moments of awkward silence followed.")
+        print("At last, Matt turned and stood from the swivel chair in one fluid motion,")
+        print("placing both hands on his desk with an unnerving smile.\n")
+        print("     'Very well... I'll grant you an opportunity to improve your grade.'\n")
+        input("Response: ")
+        print("\n    'All you have to do is demonstrate mastery over the standards of this")
+        print("course,' he continued, but his tone was strangely foreboding.")
+        print("Matt raised one hand, and from the shadows, Nahili Ansha stepped forward.")
+        print("     'Show me what you've learned... or FAIL!' Matt shouted, and Nahili advanced.")
+
+
 
     # Defines the steps of the Boss fight
     def boss_fight(self, Player, Monster): #Takes input of the player and Monster that are fighting
@@ -146,16 +180,15 @@ class Game:
 
 #Name Creation function
 def choose_name():
-    confirm_name = ''
+    confirm_name = "New"
     player_name = ''
-    while confirm_name != "Confirm":
-        player_name = input("Enter the name of your character: ")
-        confirm_name = input(f"Your character's name is {player_name}. Type 'Confirm' to continue or 'New' to change your character's name: ")
+    while confirm_name == "New":
+        player_name = input("What name do you read from your MAVCard as you leave your dorm? ")
+        confirm_name = input(f"Your name is {player_name}. Enter any key to confirm or 'New' to change your name: ")
     return player_name
 
 
-# Create all 3 Characters 
-Player = Character(choose_name(), 20, 5)
+
 
 monsters_list = []
 with open("Monster.txt", "r") as file:
@@ -172,7 +205,10 @@ with open("Monster.txt", "r") as file:
 #Function that loads questions into a dictionary to be used by monster method
 
 game = Game()
-game.start()
+game.start1()
+# Create Character 
+Player = Character(choose_name(), 20, 5)
+game.start2()
 for monster in monsters_list:
     if game.game_running:
         game.boss_fight(Player, monster)
