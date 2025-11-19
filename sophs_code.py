@@ -127,20 +127,20 @@ class Game:
         print("\nUpon closer inspection, you find Matt facing the opposite wall, reclining")
         print("in a leather swivel chair. He doesn't turn to face you.\n")
         print("    'I suppose you're wondering what you can do to pass my course,' Dr.")
-        print("Priem presumed in a foreboding voice. 'Yes?'\n")
+        print("Priem presumes in a foreboding voice. 'Yes?'\n")
         user_ans = input("Answer 'Yes' or 'No': ")
         if user_ans != 'Yes' and user_ans != 'No':
             print("The CIS professor gives you a strange look.")
         print("    'I can see that you are. You have the look about you of desperation...'")
-        print("A few moments of awkward silence followed.")
-        print("At last, Matt turned and stood from the swivel chair in one fluid motion,")
+        print("A few moments of awkward silence follow.")
+        print("At last, Matt turns and stands from the swivel chair in one fluid motion,")
         print("placing both hands on his desk with an unnerving smile.")
         print("     'Very well... I'll grant you an opportunity to improve your grade.'\n")
         input("Response: ")
         print("\n    'All you have to do is demonstrate mastery over the standards of this")
-        print("course,' he continued, but his tone was strangely foreboding.")
-        print("Matt raised one hand, and from the shadows, Nahili Ansha stepped forward.")
-        print("     'Show me what you've learned... or FAIL!' Matt shouted, and Nahili advanced.")
+        print("course,' he continues, but his tone is strangely foreboding.")
+        print("Matt raises one hand, and from the shadows, Nahili Ansha steps forward.")
+        print("     'Show me what you've learned... or FAIL!' Matt shouts as Nahili advances.")
         input("Response: ")
  
         
@@ -165,7 +165,7 @@ class Game:
                 input("Response: ")
                 print(f"\n'Well done, {Player.get_name()},' Matt smiles and leans back in his chair.")
                 print(f"'But don't think you're out of the woods yet!'")
-                print("Matt raised his hand again, and in Nahili's place, Jacob Tang materializes.\n")
+                print("Matt raises his hand again, and in Nahili's place, Jacob Tang materializes.\n")
                 input("Response: ")
             elif Monster.get_name() == "Jacob Tang":
                 print("\nJacob stumbles back, eyes wide and breathing hard. 'Very good...'")
@@ -177,6 +177,17 @@ class Game:
                 print("He glitches and appears right in front of you. 'For your final test, I'll be")
                 print("evaluating your skills PERSONALLY!'\n")
                 input("Response: ")
+            elif Monster.get_name() == "Matt Priem":
+                print("\n The force of your programming knowledge sends Matt crashing to the ground, and")
+                print("several explosions go off in the background for dramatic flair.")
+                print("He is breathing hard, and after a tense moment, he starts... chuckling to himself.\n")
+                input("Response: ")
+                print("\nMatt's chuckle builds into a full laugh as he rights himself and sits up. 'I...'")
+                print("'I haven't had that much fun in years!'")
+                print("Matt continued to laugh. 'With skill like that, you'll give Dr. Burke a run for his")
+                print("money in CIS 122!'\n")
+                input("Response: ")
+
             
 
         elif Monster.is_alive():
@@ -186,25 +197,28 @@ class Game:
     def end(self, Player):
 
         if Player.is_alive():
-            print('You won')
+            print("\n'Oh, yes! After what I've seen today, you've clearly demonstrated your CIS 121 skills.'")
+            print("You help the programming professor to his feet. 'Send my regards to John when you see him.'")
+            print("Matt gives you an approving smile. 'Now take your 'A' and get out of my office, I think I")
+            print("threw out my back.'\n")
+            input("Response: ")
+            print("\n-------------------------------------------------------------------------------")
+            print("_____________________________________YOU WON!__________________________________")
+            print("                              Thank you for playing!                             ")
+            print("-------------------------------------------------------------------------------")
+
+                           
         else:
             print("    'I've seen enough.' Matt stands before you with a detached expression. 'I'm sorry,")
             print("but your skills have proved insufficient.'")
             print("The programming professor helps you to your feet. 'I'll see you next semester.'\n")
             input("Response: ")
-            print("-------------------------------------------------------------------------------")
+            print("\n-------------------------------------------------------------------------------")
             print("___________________________________GAME OVER___________________________________")
             print("                             Better luck next time!                            ")
             print("-------------------------------------------------------------------------------")
 
-
-
-
-
-
-
         self.game_running = False
-
 
 
 #Name Creation function
