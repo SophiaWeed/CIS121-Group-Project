@@ -45,8 +45,6 @@ class Character:
         #prints the result
         print(f'{self.name} attacks {enemy.name} for {self.damage} damage')
         print(f'{enemy.get_name()} is at {enemy.get_hp()} hp')
-    
-    
 
 
 #Creates seperate class for monster so it can attack differently using questions
@@ -55,28 +53,18 @@ class Monsters(Character): #Monster class inherits Character class methods and v
 
     #imports questions answer pairs from a txt file into dictionary where question is key and answer is value
     def create_question_dict(self):
-        
         with open("Questions.txt","r") as file:
             questions_dict = {}
             for line in file:
                 parts = line.strip().split(",")
-                if line:
-                    line = line.split(",")
-        # question_file = open("Questions.txt","r")
-        # data = question_file.readlines()
-        # for line in data:
-        #     line_data = line.split(",")
-            question = line[0]
-            answer = line[1]
-            questions_dict[question] = answer
+                if len(parts) == 2:
+                    question, answer = parts
+                    questions_dict[question] = answer
         return questions_dict
     
     #Creates list of keys in questions_dictonary and returns a random key from that list  
     def return_random_question(self, questions_dict):
         return random.choice(list(questions_dict.keys()))
-
-            
-    
     
     # Monster gives question to player.
     #If player answers correctly they deal damage to monster. If they answer incorrectly monster deals damage to them.
@@ -172,7 +160,6 @@ class Game:
 
 
 
-
 #Name Creation function
 def choose_name():
     confirm_name = "New"
@@ -184,17 +171,14 @@ def choose_name():
 
 
 
-
 monsters_list = []
 with open("Monster.txt", "r") as file:
     for line in file:
         line = line.strip()
         if line:
             name, health, attack = line.split(",")
-
             health = int(health)
             attack = int(attack)
-
             monsters_list.append(Monsters(name, health, attack))
 
 #Function that loads questions into a dictionary to be used by monster method
