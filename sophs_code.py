@@ -84,11 +84,15 @@ class Monsters(Character): #Monster class inherits Character class methods and v
             print(f"He asks you: '{question}'\n")
     #enemy answers question and if it is incorrect they take attack damage
         player_answer = input("What is your answer? ") 
-        while player_answer != answer:
+        while player_answer != answer and self.is_alive():
             print("\n'That's incorrect!' your foe grins.")
             self.attack(player)
-            print(f"\n'Again, {question}'")
-            player_answer = input("What is your answer? ")
+            if Character.is_alive(player):
+                print(f"\n'Again, {question}'")
+                player_answer = input("What is your answer? ")
+            else:
+                break
+
              
         else:
             print("\n'That's correct,' your foe mutters.")
@@ -161,7 +165,7 @@ class Game:
                 input("Response: ")
                 print(f"\n'Well done, {Player.get_name()},' Matt smiles and leans back in his chair.")
                 print(f"'But don't think you're out of the woods yet!'")
-                print("Matt raised his hand again, and in Nahili's place, Jacob Tang materializes.")
+                print("Matt raised his hand again, and in Nahili's place, Jacob Tang materializes.\n")
                 input("Response: ")
             elif Monster.get_name() == "Jacob Tang":
                 print("\nJacob stumbles back, eyes wide and breathing hard. 'Very good...'")
@@ -172,9 +176,11 @@ class Game:
                 print("cracking his knuckles. 'Very well, then.'")
                 print("He glitches and appears right in front of you. 'For your final test, I'll be")
                 print("evaluating your skills PERSONALLY!'\n")
+                input("Response: ")
+            
 
         elif Monster.is_alive():
-            print('You were defeated')
+            print(f"{Monster.get_name()}'s blow sends you crashing to the ground.\n")
             self.game_running = False #If player.is_alive returns false game ends
 
     def end(self, Player):
@@ -182,7 +188,21 @@ class Game:
         if Player.is_alive():
             print('You won')
         else:
-            print('Good luck next time')
+            print("    'I've seen enough.' Matt stands before you with a detached expression. 'I'm sorry,")
+            print("but your skills have proved insufficient.'")
+            print("The programming professor helps you to your feet. 'I'll see you next semester.'\n")
+            input("Response: ")
+            print("-------------------------------------------------------------------------------")
+            print("___________________________________GAME OVER___________________________________")
+            print("                             Better luck next time!                            ")
+            print("-------------------------------------------------------------------------------")
+
+
+
+
+
+
+
         self.game_running = False
 
 
