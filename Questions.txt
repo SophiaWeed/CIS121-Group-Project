@@ -1,5 +1,5 @@
-What is 2 + 2 ,4
-What is 7 - 4,3
+What is 2+2?,4
+What is 7-4?,3
 What keyword is used to define a function in Python?,def 
 What is the name of __init__()?,constructor
 What data type is used for True/False values?,boolean

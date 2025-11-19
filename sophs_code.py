@@ -1,4 +1,3 @@
-
 import random
 
 
@@ -43,8 +42,8 @@ class Character:
         #damage is dealt
         enemy.hp -= self.damage
         #prints the result
-        print(f'{self.name} attacks {enemy.name} for {self.damage} damage')
-        print(f'{enemy.get_name()} is at {enemy.get_hp()} hp')
+        print(f'{self.name} attacks {enemy.name} for {self.damage} damage!')
+        print(f'{enemy.get_name()} is at {enemy.get_hp()} HP.\n')
 
 
 #Creates seperate class for monster so it can attack differently using questions
@@ -74,15 +73,25 @@ class Monsters(Character): #Monster class inherits Character class methods and v
         questions_dict = self.create_question_dict()
         question = self.return_random_question(questions_dict) 
         answer = questions_dict[question]
-        print(question)
+        if self.get_name() == "Nahili Ansha":
+            print("Nahili stands before you, her hijab blowing in the non-existent wind.")
+            print(f"She asks you:'{question}'\n")
+        elif self.get_name() == "Jacob Tang":
+            print("Jacob stands before you, his glasses flashing despite the dark of the room.")
+            print(f"He asks you: '{question}'\n")
+        elif self.get_name() == "Matt Priem":
+            print("Matt studies you intently, coding terminals floating around him.")
+            print(f"He asks you: '{question}'\n")
     #enemy answers question and if it is incorrect they take attack damage
         player_answer = input("What is your answer? ") 
         while player_answer != answer:
+            print("\n'That's incorrect!' your foe grins.")
             self.attack(player)
-            print(question)
+            print(f"\n'Again, {question}'")
             player_answer = input("What is your answer? ")
              
         else:
+            print("\n'That's correct,' your foe mutters.")
             player.attack(self)
 
 
@@ -128,24 +137,42 @@ class Game:
         print("course,' he continued, but his tone was strangely foreboding.")
         print("Matt raised one hand, and from the shadows, Nahili Ansha stepped forward.")
         print("     'Show me what you've learned... or FAIL!' Matt shouted, and Nahili advanced.")
-    def combat_start(self):
-        print("\n-------------------------------------------------------------------------------------")
-        print("Nahili closes in! Answer each of her CIS 121 questions correctly to deal damage, but")
-        print("beware the consequences of an incorrect answer!")
-        print("-------------------------------------------------------------------------------------")
+        input("Response: ")
+ 
         
 
 
     # Defines the steps of the Boss fight
     def boss_fight(self, Player, Monster): #Takes input of the player and Monster that are fighting
-        print(f'I {Monster.get_name()} will defeat you!!')
+        print("\n-------------------------------------------------------------------------------------")
+        print(f"{Monster.get_name()} closes in! Answer each of their CIS 121 questions correctly to deal damage, but")
+        print("beware the consequences of an incorrect answer!")
+        print("-------------------------------------------------------------------------------------\n")
+        
         #Monster and Player fight until is_alive returns False(One dies)
 
         while Player.is_alive() and Monster.is_alive():
             Monster.give_question(Player)
                
         if Player.is_alive():
-            print('You defeated the Monster')
+            if Monster.get_name() == "Nahili Ansha":
+                print("\nNahili stands down, putting her hands up in surrender. 'Impressive work...'")
+                print("Nahili glances back to Matt, who nods, and she melts back into the shadows.\n")
+                input("Response: ")
+                print(f"\n'Well done, {Player.get_name()},' Matt smiles and leans back in his chair.")
+                print(f"'But don't think you're out of the woods yet!'")
+                print("Matt raised his hand again, and in Nahili's place, Jacob Tang materializes.")
+                input("Response: ")
+            elif Monster.get_name() == "Jacob Tang":
+                print("\nJacob stumbles back, eyes wide and breathing hard. 'Very good...'")
+                print("He turns his gaze to Matt, who nods. 'I was gonna meet some friends for a vibe")
+                print("coding session anyways,' he mutters, and vanishes in a cloud of 1s and 0s.\n")
+                input("Response: ")
+                print(f"\n'You've proven yourself quite adept, {Player.get_name()}.' Matt stands slowly,")
+                print("cracking his knuckles. 'Very well, then.'")
+                print("He glitches and appears right in front of you. 'For your final test, I'll be")
+                print("evaluating your skills PERSONALLY!'\n")
+
         elif Monster.is_alive():
             print('You were defeated')
             self.game_running = False #If player.is_alive returns false game ends
@@ -188,7 +215,6 @@ game.start1()
 # Create Character 
 Player = Character(choose_name(), 20, 5)
 game.start2()
-game.combat_start()
 for monster in monsters_list:
     if game.game_running:
         game.boss_fight(Player, monster)
