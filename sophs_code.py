@@ -165,10 +165,12 @@ class Game:
                 input("Response: ")
                 print(f"\n'Well done, {Player.get_name()},' Matt smiles and leans back in his chair.")
                 print(f"'But don't think you're out of the woods yet!'")
-                print("Matt raises his hand again, and in Nahili's place, Jacob Tang materializes.\n")
+                print("Matt raises his hand again, and... nothing happens. Matt sighs and you wait")
+                print("politely for a few seconds before Jacob Tang suddenly materializes with skate-")
+                print("board in hand. 'Sorry I'm late!'\n")
                 input("Response: ")
             elif Monster.get_name() == "Jacob Tang":
-                print("\nJacob stumbles back, eyes wide and breathing hard. 'Very good...'")
+                print("Jacob stumbles back, eyes wide and breathing hard. 'Very good...'")
                 print("He turns his gaze to Matt, who nods. 'I was gonna meet some friends for a vibe")
                 print("coding session anyways,' he mutters, and vanishes in a cloud of 1s and 0s.\n")
                 input("Response: ")
@@ -178,7 +180,7 @@ class Game:
                 print("evaluating your skills PERSONALLY!'\n")
                 input("Response: ")
             elif Monster.get_name() == "Matt Priem":
-                print("\n The force of your programming knowledge sends Matt crashing to the ground, and")
+                print("    The force of your programming knowledge sends Matt crashing to the ground, and")
                 print("several explosions go off in the background for dramatic flair.")
                 print("He is breathing hard, and after a tense moment, he starts... chuckling to himself.\n")
                 input("Response: ")
@@ -203,8 +205,8 @@ class Game:
             print("threw out my back.'\n")
             input("Response: ")
             print("\n-------------------------------------------------------------------------------")
-            print("_____________________________________YOU WON!__________________________________")
-            print("                              Thank you for playing!                             ")
+            print("___________________________________YOU WON!____________________________________")
+            print("                            Thank you for playing!                             ")
             print("-------------------------------------------------------------------------------")
 
                            

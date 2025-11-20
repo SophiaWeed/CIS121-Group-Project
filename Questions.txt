@@ -6,7 +6,7 @@ What data type is used for True/False values?,boolean
 What function outputs text to the terminal?,print()
 What function prompts the user to enter some value or data?,input()
 What operator is used for exponentiation?,**
-What keyword is used to create a loop that repeats over item in a sequence?,for
+What keyword is used to create a loop that repeats over items in a sequence?,for
 What built-in function gives the length of a list or string?,len()
 What Python data type uses square brackets?,list
 What Python data type uses curly brackets?,dictionary
